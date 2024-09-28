@@ -85,7 +85,7 @@
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
                     <h2 class="fw-bolder">Nos services</h2>
-                    <p class="lead mb-0">AutoPro Garage s'occupent de la réparation et l'entretien de votre véhicule à moindre prix. Profitez d'une prestation de qualité dès-mainteant !</p>
+                    <p class="lead mb-0">AutoPro Garage s'occupent de la réparation et l'entretien de votre véhicule à moindre prix. Profitez d'une prestation de qualité dès-maintenant !</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <!-- Pricing card free-->
@@ -343,6 +343,15 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
+         <h3 class="text-center text-white">Horaires d'ouverture :</h3>
+            <ul>
+{% for horaire in horaires %}
+    <p class="text-center text-white">Jour : {{ horaire.jour }}</p>
+    <p class="text-center text-white">Ouverture : {{ horaire.heureOuverture|date('H:i') }}</p>
+    <p class="text-center text-white">Fermeture : {{ horaire.heureFermeture|date('H:i') }}</p>
+{% endfor %}
+
+            </ul>
             <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
