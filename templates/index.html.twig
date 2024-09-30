@@ -81,8 +81,8 @@
             </div>
         </section>
         <!-- Pricing section-->
-<section class="bg-light py-5 border-bottom">
-    <div class="container px-5 my-5">
+<section class="bg-light py-5 border-bottom ">
+    <div class="container px-5 my-5 ">
         <div class="text-center mb-5">
             <h2 class="fw-bolder">Nos Services</h2>
             <p class="lead mb-0">Découvrez nos services de réparation et d'entretien de véhicules.</p>
@@ -90,11 +90,12 @@
         <div class="row gx-5 justify-content-center">
             {% for service in services %}
                 <div class="col-lg-6 col-xl-4">
-                    <div class="card mb-5 mb-xl-0">
-                        <div class="card-body p-5">
+                        <div class="card mb-5 mb-xl-0 ajustement">
+                        <div class="card-body p-5 alignement">
+                        <div>
                             <div class="small text-uppercase fw-bold text-muted">{{ service.title }}</div>
                             <div class="mb-3">
-                                <span class="display-4 fw-bold">{{ service.price|number_format(2, '.', '') }} €</span>
+                                <span class="display-4 fw-bold ">{{ service.price|number_format(2, '.', '') }} €</span>
                                 <span class="text-muted"></span>
                             </div>
                             <ul class="list-unstyled mb-4">
@@ -103,7 +104,8 @@
                                     {{ service.description|nl2br }} <!-- Utiliser nl2br pour les sauts de ligne -->
                                 </li>
                             </ul>
-                            <div class="d-grid">
+                            </div>
+                            <div class="d-grid alignement">
                                 <a class="btn btn-outline-primary" href="#!">Choisir le service</a>
                             </div>
                         </div>
