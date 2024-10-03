@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Document\Temoignage;
 use App\Entity\User;
 use App\Entity\Horaires; // Ajouter l'entité Horaires
 use App\Entity\Service;
@@ -22,7 +23,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('AutoPro Garage - Admin');
+            ->setTitle('V.Parrot - Admin');
     }
 
     public function configureMenuItems(): iterable

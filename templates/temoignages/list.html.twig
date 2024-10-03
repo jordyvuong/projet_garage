@@ -1,0 +1,32 @@
+{# templates/temoignages/list.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Témoignages Approuvés{% endblock %}
+{% block body %}
+
+    <h2>Témoignages Approuvés</h2>
+        <a href="{{ path('home') }}" class="btn btn-secondary">Retour à l'accueil</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Commentaire</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for temoignage in temoignages %}
+            <tr>
+                <td>{{ temoignage.name }}</td>
+                <td>{{ temoignage.comment }}</td>
+                <td>{{ temoignage.rating }}</td>
+                <td>
+                    <form method="POST" action="{{ path('temoignage_supprimer', { 'id': temoignage.id }) }}" style="display:inline-block;">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

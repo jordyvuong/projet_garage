@@ -5,24 +5,60 @@
     <title>{% block title %}Nos véhicules d'occasions{% endblock %}</title>
 <link href="{{ asset('/assets/css/styles.css') }}" rel="stylesheet" />
 <link href="{{ asset('/assets/css/styles1.css') }}" rel="stylesheet" />
+
 </head>
 
 {% block body %}
-     <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="{{ path('home') }}">AutoPro Garage</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path ('app_voitures_occasion') }}">Nos véhicules</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+ <!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="{{ path('home') }}">V.Parrot</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_voitures_occasion') }}">Nos véhicules</a>
+                </li>
+
+                <!-- Affichage du menu Témoignages seulement pour les utilisateurs authentifiés -->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Témoignages
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a class="dropdown-item" href="{{ path('temoignage_moderation') }}">Modérer les témoignages</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{{ path('temoignage_approved_list') }}">Voir les témoignages approuvés</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+                <!-- Vérification connexion/déconnexion -->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin.index') }}">Admin</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <h1>Nos voitures d'occasion</h1>
 
@@ -42,3 +78,12 @@
     {% endfor %}
 </div>
 {% endblock %}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

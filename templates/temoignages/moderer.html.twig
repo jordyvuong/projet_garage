@@ -1,0 +1,36 @@
+{# templates/temoignages/moderer.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Modérer les Témoignages{% endblock %}
+
+{% block body %}
+    <h2>Témoignages à Approuver</h2>
+    <a href="{{ path('home') }}" class="btn btn-secondary">Retour à l'accueil</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Commentaire</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for temoignage in temoignages %}
+            <tr>
+                <td>{{ temoignage.name }}</td>
+                <td>{{ temoignage.comment }}</td>
+                <td>{{ temoignage.rating }}</td>
+                <td>
+                    <form method="POST" action="{{ path('temoignage_approuver', { 'id': temoignage.id }) }}" style="display:inline-block;">
+                        <button type="submit">Approuver</button>
+                    </form>
+                    <form method="POST" action="{{ path('temoignage_rejeter', { 'id': temoignage.id }) }}" style="display:inline-block;">
+                        <button type="submit" class="btn btn-danger">Rejeter</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{%endblock%}

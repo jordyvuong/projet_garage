@@ -23,7 +23,7 @@ class UserCrudController extends AbstractCrudController
         return $crud
         ->setEntityLabelInPlural('Utilisateurs')
         ->setEntityLabelInSingular('Utilisateurs')
-        ->setPageTitle("index", "AutoPro Garage - Administration des utilisateurs");
+        ->setPageTitle("index", "V.Parrot - Administration des utilisateurs");
     }
 
 
