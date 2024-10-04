@@ -9,7 +9,7 @@
 </head>
 
 {% block body %}
- <!-- Responsive navbar-->
+<!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="{{ path('home') }}">V.Parrot</a>
@@ -21,8 +21,16 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_voitures_occasion') }}">Nos véhicules</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nos véhicules
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path('app_voitures_occasion') }}">Véhicules d'occasion</a></li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a class="dropdown-item" href="{{ path('app_voiture_new') }}">Ajouter un véhicule</a></li> <!-- Nouveau lien ajouté -->
+                    {% endif %}
+                    </ul>
                 </li>
 
                 <!-- Affichage du menu Témoignages seulement pour les utilisateurs authentifiés -->
@@ -72,6 +80,8 @@
                     <p class="card-text">Année : {{ voiture.annee }}</p>
                     <p class="card-text">Kilométrage : {{ voiture.kilometrage }} km</p>
                     <p class="card-text">Prix : {{ voiture.prix }} €</p>
+                    <a class="btn btn-outline-primary text-center container" href="{{ path('home') }}#contactez">Acheter</a> 
+
                 </div>
             </div>
         </div>

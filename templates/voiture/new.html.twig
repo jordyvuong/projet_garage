@@ -1,37 +1,93 @@
-{% block stylesheet %}<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">{% endblock %}
+{% block stylesheet %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+    /* Optional custom styles to add more specific styling */
+    h1 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #343a40;
+        text-align: center;
+    }
 
-{% extends 'base.html.twig' %}
+    .form-group {
+        margin-bottom: 15px;
+    }
 
-{% block title %}Ajouter une voiture{% endblock %}
+    .form-control {
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        display: block;
+        width: 100%;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        .form-control {
+            font-size: 1rem;
+        }
+        .btn-primary {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
 
 {% block body %}
-<h1>Ajouter une nouvelle voiture</h1>
+<div class="container mt-5">
+    <h1>Ajouter une nouvelle voiture</h1>
 
-{{ form_start(form) }}
-    <div class="form-group">
-        {{ form_label(form.marque) }}
-        {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(form.modele) }}
-        {{ form_widget(form.modele, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(form.prix) }}
-        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(form.annee) }}
-        {{ form_widget(form.annee, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(form.kilometrage) }}
-        {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(form.imageFile) }}
-        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
-    </div>
-    <button class="btn btn-primary">Ajouter la voiture</button>
-{{ form_end(form) }}
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.marque) }}
+            {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.modele) }}
+            {{ form_widget(form.modele, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.prix) }}
+            {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.annee) }}
+            {{ form_widget(form.annee, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.kilometrage) }}
+            {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.imageFile) }}
+            {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <button class="btn btn-primary">Ajouter la voiture</button>
+    {{ form_end(form) }}
+</div>
 {% endblock %}

@@ -6,11 +6,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>V.Parrot</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="{{ asset('/assets/css/styles.css') }}" rel="stylesheet" />
     </head>
     <body>
@@ -26,8 +24,16 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_voitures_occasion') }}">Nos véhicules</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nos véhicules
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ path('app_voitures_occasion') }}">Véhicules d'occasion</a></li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a class="dropdown-item" href="{{ path('app_voiture_new') }}">Ajouter un véhicule</a></li> 
+                    {% endif %}
+                    </ul>
                 </li>
 
                 <!-- Affichage du menu Témoignages seulement pour les utilisateurs authentifiés -->
@@ -65,50 +71,54 @@
     </div>
 </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">V.Parrot - Votre confiance, notre expertise.</h1>
-                            <p class="lead text-white-50 mb-4">Avec plus de 15 ans d'expérience, nous vous garantissons des réparations fiables, un entretien de qualité, et des véhicules d'occasion sélectionnés avec soin. Confiez-nous votre voiture, nous veillons à sa performance et à votre sécurité.</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                <a class="btn btn-outline-light btn-lg px-4" href="#!">En savoir plus</a>
-                            </div>
-                        </div>
+<header class="video-header">
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="assets/videos/voiture.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="container d-flex align-items-center justify-content-center h-100">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6 text-overlay">
+                <div class="text-center">
+                    <h1 class="display-5 fw-bolder text-white mb-2">V.Parrot - Votre confiance, notre expertise.</h1>
+                    <p class="lead text-white-60 mb-4">Avec plus de 15 ans d'expérience, nous vous garantissons des réparations fiables, un entretien de qualité, et des véhicules d'occasion sélectionnés avec soin. Confiez-nous votre voiture, nous veillons à sa performance et à votre sécurité.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">En savoir plus</a>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
         <!-- Features section-->
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-tools"></i></div>
+                        <h2 class="h4 fw-bolder">Services de réparation complets</h2>
+                        <p>Réparations mécaniques et carrosserie, un service sur mesure pour chaque véhicule.
+Nos experts interviennent rapidement pour garantir performance, sécurité et longévité de votre voiture</p>
+                        <a class="text-decoration-none" href="#contactez">
+                            Prendre rendez-vous
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-car-front"></i></div>
+                        <h2 class="h4 fw-bolder">Nos voitures d'occasion</h2>
+                        <p>Chaque véhicule est inspecté en détail pour vous offrir sécurité et performance à un prix compétitif. Que vous soyez à la recherche d'une petite citadine, d'une berline confortable ou d'un SUV spacieux, nous avons ce qu'il vous faut.</p>
+                        <a class="text-decoration-none" href="#contactez">
+                            Prendre rendez-vous
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h2 class="h4 fw-bolder">Un entretien régulier</h2>
+                        <p>Assurez la longévité et la performance de votre voiture avec un entretien régulier ! Nos experts prennent soin de votre véhicule pour garantir sécurité et fiabilité au quotidien</p>
+                        <a class="text-decoration-none" href="#contactez">
+                            Prendre rendez-vous
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -184,11 +194,11 @@
         </section>
         <!-- Contact section-->
         <section class="bg-light py-5">
-            <div class="container px-5 my-5 px-5">
+            <div class="container px-5 my-5 px-5" id="contactez">
                 <div class="text-center mb-5">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                    <h2 class="fw-bolder">Get in touch</h2>
-                    <p class="lead mb-0">We'd love to hear from you</p>
+                    <h2 class="fw-bolder">Nous contactez</h2>
+                    <p class="lead mb-0">Un de nos experts vous répondra rapidement pour vous conseiller et trouver la solution adaptée à vos besoins.</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
@@ -203,27 +213,27 @@
                             <!-- Name input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <label for="name">Nom</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Veuillez mettre votre nom.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <label for="email">Adresse e-mail</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Veuilez entrer votre adresse e-mail.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Votre adresse e-mail n'est pas valide.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <label for="phone">Numéro de téléphone</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Veuilez entrer votre numéro de téléphone.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Tapez votre message</div>
                             </div>
                             <!-- Submit success message-->
                             <!---->
@@ -243,7 +253,7 @@
                             <!-- an error submitting the form-->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Envoyez</button></div>
                         </form>
                     </div>
                 </div>

@@ -39,7 +39,7 @@ class VoitureController extends AbstractController
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uiqid().'.'.$imageFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
                 // Déplacer le fichier image dans le répertoire d'uploads
                 try {
