@@ -19,7 +19,8 @@ Vous aurez alors pour mission de créer une application web vitrine pour le Gara
 - **Page d'administration** : accès restreint pour ajouter et supprimer des véhicules
 - **Présenter les services** : l'administrateur a la posibilité de modifier les informations directements à partir de son espace admin.
 - **Définir les horaires d'ouvertures** : l'administrateur a la posibilité de préciser quand le garage est ouvert, à partir de son espace.
-- **Receuillir les témoignages clients** : Les avis seront modérés par un employé pour éviter tout contenu inapproprié ou offensant.
+- **Receuillir les témoignages clients** : les avis seront modérés par un employé pour éviter tout contenu inapproprié ou offensant.
+- **Création de compte** : possibilité de créer un compte employé depuis la page admin et lui attribuer un rôle.
 
 ## Prérequis 
 
