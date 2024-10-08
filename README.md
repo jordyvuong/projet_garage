@@ -1,7 +1,3 @@
-Lien du PPT : https://www.canva.com/design/DAGSj5xtuyc/Sdx_krXR5kVJArWT-TBfRQ/view?utm_content=DAGSj5xtuyc&utm_campaign=designshare&utm_medium=link&utm_source=editor
-
-(Le NoSQL a été fait avec MongoDB pour recueillir les témoignages) 
-
 ## Présentation du contexte
 
 Vincent Parrot, fort de ses 15 années d'expérience dans la réparation automobile, a ouvert son propre garage à Toulouse en 2021.
@@ -64,3 +60,8 @@ Vous aurez alors pour mission de créer une application web vitrine pour le Gara
    ```bash
    symfony server:start -d
    ```
+
+
+## Annexes 
+
+Lien du PPT : https://www.canva.com/design/DAGSj5xtuyc/Sdx_krXR5kVJArWT-TBfRQ/view?utm_content=DAGSj5xtuyc&utm_campaign=designshare&utm_medium=link&utm_source=editor
