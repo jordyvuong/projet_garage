@@ -47,20 +47,30 @@ Vous aurez alors pour mission de créer une application web vitrine pour le Gara
     ```bash
     composer install
     ```
+3. Installez EasyAdmin4 :
 
-3. Configurez la base de données dans le fichier `.env` :
+    ```bash
+    composer require easycorp/easyadmin-bundle
+    ```
+
+4. Configurez la base de données dans le fichier `.env` :
 
     ```bash
     DATABASE_URL="mysql://root:@127.0.0.1:8000/garage_db"
     ```
+5. Installez MongoDB et configurez le cluster sous le nom de "garage_db"
 
-4. Créez la base de données et exécutez les migrations :
+    ```bash
+    https://www.mongodb.com/try/download/community
+    ```
+   
+6. Créez la base de données et exécutez les migrations :
 
     ```bash
     php bin/console doctrine:database:create
     php bin/console doctrine:migrations:migrate
     ```
-5. Démarrer le serveur symfony :
+7. Démarrer le serveur symfony :
 
    ```bash
    symfony server:start -d
